@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { getAllCocktails } from '../../Redux/reducers/cocktailReducers';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -16,7 +17,6 @@ const Home = () => {
     }, [dispatch])
 
 
-
     return (
         <div>
             <Header />
@@ -26,10 +26,10 @@ const Home = () => {
             {
                 cocktails.length > 0 &&
                 cocktails.map(el => (
-                    <div key={el.idDrink}>
+                    <Link to={`/cocktail/${el.idDrink}`} key={el.idDrink}>
                         <h2>{el.strDrink}</h2>
                         <img width={200} src={el.strDrinkThumb} alt={el.strDrink}  />
-                    </div>
+                    </Link>
                 ))
             }
         </div>

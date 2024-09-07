@@ -17,6 +17,11 @@ export const cocktailAPI = {
     },
     getByFilter(option) {
         return instanse.get(`filter.php?a=${option}`).then(res => res.data)
-    }
-    
+    },
+    getById(id) {
+        return instanse.get(`lookup.php?i=${id}`).then(res => res.data)
+    },
+    getIngredient(name) {
+        return instanse.get(`search.php?i=${name}`)
+    },
 }

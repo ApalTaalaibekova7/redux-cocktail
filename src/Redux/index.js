@@ -1,0 +1,12 @@
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { thunk } from "redux-thunk";
+import cocktailsReducer from "./reducers/cocktailReducers";
+
+
+const reducers = combineReducers({
+    cocktails: cocktailsReducer
+})
+
+const store = legacy_createStore(reducers, applyMiddleware(thunk))
+
+export default store
